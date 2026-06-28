@@ -1,12 +1,45 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /> <!--<meta charset="UTF-8">-->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tittle name</title>
-    <!-- Aquí likeas tu html con tu css -->
+    <meta name="author" content="Ana Ramírez Moreno">
+
+    <title>S1.03  | Crear pagina Web</title>
+    <link rel="stylesheet" href="./src/css/style.css"><!--CSS-->
+
   </head>
   <body>
+    
+    <h1>Frontend 2025-2026 | Sprint 1 Ej 03</h1>
+    <h2>Maquetación Adaptativa y Accesible - Implementación Vanilla I</h2>
+
+    <p>Crea una página funcional y accesible siguiendo los criterios de bueas prácticas.</p>
+           <ul>
+            <li>Estructura básica con <span class ="highlight">article</span> o <span class ="highlight">nav</span> </li>
+            <li>No usar la etiqueta <span class ="highlight">div</span>, va mal para el lector de pantallas</li>
+            <li>Layouts responives con CSS moderno: <span class ="highlight">CSS Grid</span> y <span class ="highlight">Flexbox</span> (crear menú vertical y alinear contenidos)</li>
+            git remote git branchrm origin<li>Uso de <span class ="highlight">unidades relativas </span>(rem, %) </span>pera mantener proporciones</li>
+            <li><span class ="highlight">alt, aria-label</span>: Atributos básicos para elementos no textuales (etiquétas semánticas)</li>
+            <li>Define una estrategia para imágenes adaptativas con <span class ="highlight">picture</span> y <span class ="highlight">srcsetque</span> ("art direction")</li>
+            <li>Variables CSS y funciones como <span class ="highlight">clamp()</span>: diseños fluidos</li>
+            <li>Contenedor responsive con <span class ="highlight">`max-width`</span> y <span class ="highlight">`min-width`</span> .</li>
+            <li>Estrategias de maquetación <span class ="highlight">mobile-first</span> (breakpoint efectivas) per a escalar diseños.</li>
+            <li>Escoger entre CSS Reset VS Normalize.css</li>
+            <li>Impementar sistema de contraste automaticamente <span class ="highlight">prefers-color-scheme</span></li>
+            <li>Hacer un fragmento con <span class ="highlight">calc()</span> para ajustar luminosidad </li>
+            <li>Hacer uso de <span class ="highlight">:focus-visible</span> para mejorar la navegación por teclado </li>
+          </ul>
+
+    <hr><!---------------------------->
+
+    <h3>Introducir datos por inputs:</h3>
+    <label>Nombre: </label> <input type="text" placeholder="Escribe tu nombre" id="name"><br><br>
+    <label>Apellido: </label> <input type="text" placeholder="Escribe tu apellido" id="surname"><br><br>
+    <label>Edad: </label> <input type="number" placeholder="Escribe tu edad" id="age"><br><br>
+    <input type="button" value="Registrarse por Input" onclick="inputFunction()"> <br>
+
+    <p id="show"></p>
     <!-- Aquí va tu esqueleto HTML -->
   </body>
 </html>
