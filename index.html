@@ -1,45 +1,195 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" /> <!--<meta charset="UTF-8">-->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Ana Ramírez Moreno">
 
-    <title>S1.03  | Crear pagina Web</title>
-    <link rel="stylesheet" href="./src/css/style.css"><!--CSS-->
+<head>
+  <meta charset="utf-8" /> <!--<meta charset="UTF-8">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Ana Ramírez Moreno">
+  <title>S1.03 | Maquetación Adaptativa y Accesible - Implementación Vanilla I</title>
+  <link rel="stylesheet" href="./src/css/style.css"><!--CSS-->
+</head>
 
-  </head>
-  <body>
-    
-    <h1>Frontend 2025-2026 | Sprint 1 Ej 03</h1>
-    <h2>Maquetación Adaptativa y Accesible - Implementación Vanilla I</h2>
+<body>
+  <header>
+    <!---------------------- NAV ---------------------->
+    <nav class="nav-top" aria-label="Navegador principal de la página">
+      <div class="nav-logo-container">
+        <img src="src/assets/img/logo-bookmory.png" alt="Logo Bookmory" class="nav-logo">
+        <p><a href="#">Bookmory</a> </p>
+      </div>
 
-    <p>Crea una página funcional y accesible siguiendo los criterios de bueas prácticas.</p>
-           <ul>
-            <li>Estructura básica con <span class ="highlight">article</span> o <span class ="highlight">nav</span> </li>
-            <li>No usar la etiqueta <span class ="highlight">div</span>, va mal para el lector de pantallas</li>
-            <li>Layouts responives con CSS moderno: <span class ="highlight">CSS Grid</span> y <span class ="highlight">Flexbox</span> (crear menú vertical y alinear contenidos)</li>
-            git remote git branchrm origin<li>Uso de <span class ="highlight">unidades relativas </span>(rem, %) </span>pera mantener proporciones</li>
-            <li><span class ="highlight">alt, aria-label</span>: Atributos básicos para elementos no textuales (etiquétas semánticas)</li>
-            <li>Define una estrategia para imágenes adaptativas con <span class ="highlight">picture</span> y <span class ="highlight">srcsetque</span> ("art direction")</li>
-            <li>Variables CSS y funciones como <span class ="highlight">clamp()</span>: diseños fluidos</li>
-            <li>Contenedor responsive con <span class ="highlight">`max-width`</span> y <span class ="highlight">`min-width`</span> .</li>
-            <li>Estrategias de maquetación <span class ="highlight">mobile-first</span> (breakpoint efectivas) per a escalar diseños.</li>
-            <li>Escoger entre CSS Reset VS Normalize.css</li>
-            <li>Impementar sistema de contraste automaticamente <span class ="highlight">prefers-color-scheme</span></li>
-            <li>Hacer un fragmento con <span class ="highlight">calc()</span> para ajustar luminosidad </li>
-            <li>Hacer uso de <span class ="highlight">:focus-visible</span> para mejorar la navegación por teclado </li>
-          </ul>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#">Tu lista de lecturas</a></li>
+        <!--class="nav-item"-->
+        <li class="nav-item"><a href="#">Comunidad</a></li>
+        <li class="nav-item"><a href="#">Sobre nosotros</a></li>
+      </ul>
 
-    <hr><!---------------------------->
+      <div class="signup-button-container">
+        <button type="button" class="signup-button">¡Regístrate!</button>
+      </div>
+    </nav>
 
-    <h3>Introducir datos por inputs:</h3>
-    <label>Nombre: </label> <input type="text" placeholder="Escribe tu nombre" id="name"><br><br>
-    <label>Apellido: </label> <input type="text" placeholder="Escribe tu apellido" id="surname"><br><br>
-    <label>Edad: </label> <input type="number" placeholder="Escribe tu edad" id="age"><br><br>
-    <input type="button" value="Registrarse por Input" onclick="inputFunction()"> <br>
 
-    <p id="show"></p>
-    <!-- Aquí va tu esqueleto HTML -->
-  </body>
+    <!---------------------- HEADER ---------------------->
+    <section class="header-content">
+      <div class="header-element">
+        <h1 class="main-title">Diario de lecturas </h1>
+        <h2>📚 ¡Construye un hábito de lectura duradero! 📚</h2>
+        <p><span class="highlight">Bookmory es tu aplicación todo en uno para registro de lectura, diario y objetivos.
+            Diseñada para ayudarte a ser constante y recordar lo que lees.</span></p>
+      </div>
+
+      <div class="app-button-container">
+        <a class="icon-download-app" href="https://play.google.com/store/apps/details?id=net.tonysoft.bookmory"
+          target="_blank" rel="noopener noreferrer">
+          <img src="src/assets/img/button-android.svg" alt="Descargar para Android">
+        </a>
+        <a class="icon-download-app" href="https://play.google.com/store/apps/details?id=net.tonysoft.bookmory"
+          target="_blank" rel="noopener noreferrer">
+          <img src="src/assets/img/button-ios.svg" alt="Descargar para Iphone">
+        </a>
+        <!-- <button class="icon-download-app" type="button"
+          onclick="window.location.href='https://play.google.com/store/apps/details?id=net.tonysoft.bookmory'">
+          <img src="src/assets/img/play-store-badge-es.svg" alt="Descargar Bookmory en Android">
+        </button> -->
+      </div>
+    </section>
+
+  </header>
+
+  <main>
+    <section class="galery-container" aria-label="Galería de libros">
+      <h2>Hecha un vistazo a lecturas interesantes</h2>
+
+      <div class="cards-contain">
+
+        <article class="cards-items"><!--card 1-->
+
+          <div class="book-cover">
+            <img src="src/assets/img/book1.jpg" alt="Portada de libro Memorias de una Geisha">
+          </div>
+
+          <h3>Memoirs of a Geisha</h3>
+          <h4>by Arthur Golden</h4>
+          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae neque urna. eleifend mi. nibh ac tellus
+            euismod maximus. Sed molestie lorem eget nisl ultricies mollis. Fusce varius lorem massa, sed sodales mi so
+          </p>
+          <a href="#" class="button-item" aria-label="Leer más sobre Memoirs of a Geisha"> 👉 Read more 👈 </a>
+        </article>
+
+        <article class="cards-items"><!--card 2-->
+          <div class="book-cover">
+            <img src="src/assets/img/book1.jpg" alt="Portada de libro Memorias de una Geisha">
+          </div>
+          <h3>Memoirs of a Geisha</h3>
+          <h4>by Arthur Golden</h4>
+          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae neque urna. eleifend mi. nibh ac tellus
+            euismod maximus. Sed molestie lorem eget nisl ultricies mollis. Fusce varius lorem massa, sed sodales mi so
+          </p>
+          <a href="#" class="button-item" aria-label="Leer más sobre Memoirs of a Geisha"> 👉 Read more 👈 </a>
+        </article>
+
+        <article class="cards-items"><!--card 3-->
+          <div class="book-cover">
+            <img src="src/assets/img/book1.jpg" alt="Portada de libro Memorias de una Geisha">
+          </div>
+          <h3>Memoirs of a Geisha</h3>
+          <h4>by Arthur Golden</h4>
+          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae neque urna. eleifend mi. nibh ac tellus
+            euismod maximus. Sed molestie lorem eget nisl ultricies mollis. Fusce varius lorem massa, sed sodales mi so
+          </p>
+          <a href="#" class="button-item" aria-label="Leer más sobre Memoirs of a Geisha"> 👉 Read more 👈 </a>
+        </article>
+
+        <article class="cards-items"><!--card 4-->
+          <div class="book-cover">
+            <img src="src/assets/img/book1.jpg" alt="Portada de libro Memorias de una Geisha">
+          </div>
+          <h3>Memoirs of a Geisha</h3>
+          <h4>by Arthur Golden</h4>
+          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae neque urna. eleifend mi. nibh ac tellus
+            euismod maximus. Sed molestie lorem eget nisl ultricies mollis. Fusce varius lorem massa, sed sodales mi so
+          </p>
+          <a href="#" class="button-item" aria-label="Leer más sobre Memoirs of a Geisha"> 👉 Read more 👈 </a>
+        </article>
+
+        <article class="cards-items"><!--card 5-->
+          <div class="book-cover">
+            <img src="src/assets/img/book1.jpg" alt="Portada de libro Memorias de una Geisha">
+          </div>
+          <h3>Memoirs of a Geisha</h3>
+          <h4>by Arthur Golden</h4>
+          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae neque urna. eleifend mi. nibh ac tellus
+            euismod maximus. Sed molestie lorem eget nisl ultricies mollis. Fusce varius lorem massa, sed sodales mi so
+          </p>
+          <a href="#" class="button-item" aria-label="Leer más sobre Memoirs of a Geisha"> 👉 Read more 👈 </a>
+        </article>
+
+        <article class="cards-items"><!--card 6-->
+          <div class="book-cover">
+            <img src="src/assets/img/book1.jpg" alt="Portada de libro Memorias de una Geisha">
+          </div>
+          <h3>Memoirs of a Geisha</h3>
+          <h4>by Arthur Golden</h4>
+          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae neque urna. eleifend mi. nibh ac tellus
+            euismod maximus. Sed molestie lorem eget nisl ultricies mollis. Fusce varius lorem massa, sed sodales mi so
+          </p>
+          <a href="#" class="button-item" aria-label="Leer más sobre Memoirs of a Geisha"> 👉 Read more 👈 </a>
+        </article>
+
+      </div>
+    </section>
+
+    <div class="signup-section-container">
+
+      <div class="signup-section">
+        <h3>Regístrate en Bookmory:</h3>
+
+        <div>
+          <label>Nombre:</label>
+          <input type="text" placeholder="Escribe tu nombre" id="name">
+        </div>
+
+        <div>
+          <label>Apellido:</label>
+          <input type="text" placeholder="Escribe tu apellido" id="surname">
+        </div>
+
+        <div>
+          <label>Correo electrónico:</label>
+          <input type="number" placeholder="Escribe tu correo" id="age">
+        </div>
+
+        <div class="signup-button-container">
+          <button type="submit" class="signup-button">Darme de alta</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!---------------------- FOOTER ---------------------->
+  <footer>
+    <div class=" footer-container">
+      <nav class="footer-rrss" aria-label="Redes sociales de Bookmory">
+        <a href="#" aria-label="Ir a Twitter"><img src="src/assets/img/Twitter-X--Streamline-Bootstrap.svg"
+            alt="Logo de Twitter" class="icon-rrss"></a>
+        <a href="#" aria-label="Ir a Instagram"><img src="src/assets/img/Twitter-X--Streamline-Bootstrap.svg"
+            alt="Logo Instagram" class="icon-rrss"></a>
+        <a href="#" aria-label="Ir a Facebook"><img src="src/assets/img/Twitter-X--Streamline-Bootstrap.svg"
+            alt="Logo de Facebook" class="icon-rrss"></a>
+      </nav>
+
+      <div class="footer-legal">
+        <p> <a href="#">Política de Privacidad</a></p>
+      </div>
+      <p>© 2020-2026 Tony Soft. All rights reserved.</p>
+
+      <div class="footer-logo-box">
+        <img src="src/assets/img/logo-bookmory.png" alt="Logo Bookmory" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+</body>
+
 </html>

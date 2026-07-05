@@ -1,121 +1,385 @@
 /*
-    Aquí va tu código CSS
+RESPONSIVE
+-> MOBILE 400px: El 95% serían 380px = se adapta a la minima (300px + 5% margen)
+-> TABLET 800px: El 95% serían 760px =  760px en total
+-> DESKTOP 1920px de ancho: El 95% serían 1824px
+ clamp() detecta 1824px supera el máximo permitido y clava el contenedor en 1200px + margin: auto.
 */
-/*
-div{
-        width: 65%;
-        margin: 0 auto;
-}*/
-body{
-    /*    
-    margin: 0 auto;
-    padding: 0;
-    justify-content: center;
-    */
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /*#d3d3d3*/ /*#e4e6eb*/
-    color: #242526; /*#3a3b3c*//*#242526*//*#18191A*//*#b0b3b8*/
-    margin: 0;
-    padding: 20px;
+
+/*INVESTIGAR:
+- MODO OSCURO @media query
+- ADAPTAR MOBILE NAV
+- INVESTIGAR el Graid repeat(auto-fit, minmax(280px, 1fr))
+- INVESTIGAR :focus-visible (navegar con TAB)
+*/
+
+:root {
+    --text-color: #242526;
+    --background-color: #f0f0f0;
+    --pantone-blue: #4780A6;
+    --pantone-yellow: #C8A40E;
+    --pantone-sepia: #F2E2CF;
+    --pantone-purple: #5A189A;
+    --max-width-text: clamp(18.75rem, 90%, 43.75rem); /*calc(100% -20); tambien se epuede usar*/
+    --max-width-card: clamp(18.75rem, 95%, 75rem); /*18.75rem = 300px | 43.75rem = 700px | 75rem = 1200px*/
+    /*#d3d3d3 | #e4e6eb | #5A189A #272A36*/
 }
 
-h1 {
-    color: #5A189A;
-        /* font-weight:900; */
+
+*,/*--------------reset valores ---------------*/
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* no suma medidas de padding etc, las incluye en tamaño asignado*/
+}
+
+/*--------------regla global ---------------*/
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    /*Si da tiempo, USAR UNA DE GOOGLE FONTS*/
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;/* Evita espacios en blanco img */
+}
+
+/*------------------------NAV------------------------*/
+.nav-top {
+    color: var(--text-color);
+    width: 100%;
+    height: 3.125rem; /*50px*/
+    display: flex;
+    justify-content: space-between; /* center | space-around | space-between | space-evenly*/
+    align-items: center; /* eje Y:  flex-start*/
+    background-color: var(--pantone-sepia);
+    position: fixed; /*sticky;*/
+    padding: 1.25rem; /*12px*/
+}
+
+.nav-top a {
+    color: inherit; /* cambiar color */
+    text-decoration: none; /* Quita el subrayado */
+}
+
+.nav-list {
+    display: flex;
+    gap: 1.5625rem; /*25px*/
+    list-style: none;
+    /* justify-content: center; */
+    /*flex-wrap: wrap;     /*Si los elementos no caben salto de linea*/
+}
+
+.nav-logo-container {
+    display: flex;
+    /* justify-content: flex-start; */
+    align-items: center;
+}
+
+.nav-logo {
+    max-width: 2.5rem;
+    flex-shrink: 0; /*no defromar logo al responsive*/
+}
+
+.nav-item a:hover {
+    color: inherit;
+    text-decoration: underline;
+    color: var(--pantone-yellow);
+}
+
+.signup-button {
+    color: #fff;
+    background-color: var(--pantone-blue);
+    padding: 0.625rem 1.25rem;
+    border: none;
+    border-radius: 1.875rem;
+    cursor: pointer;
+    font-size: 0.875rem; /*14px*/
+    font-weight: bold;
+}
+
+.signup-button:hover {
+    background-color: var(--pantone-yellow);
+    color: var(--pantone-blue);
+    border: 0px  solid #4780A6;
+}
+
+.signup-button:active {
+    background-color: #fff;
+    color: var(--pantone-blue);
+    border: 0.0625rem  solid var(--pantone-blue);/*1px*/
+}
+
+
+/*------------------------HEADER------------------------*/
+.header-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* padding: 120px 20px 60px 20px; */
+    padding-top: 5.625rem;
+    padding-bottom: 3.75rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+        url("../assets/img/header-book.png");
+    /* background-image: url("../assets/img/header-book.png"); */
+}
+
+.header-element {
+    width: var(--max-width-text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+
+.main-title {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px  solid var(--pantone-blue);
+    padding: 0.625rem  1.25rem;
+    border-radius: 1.875rem;
+    font-size: 1.125rem;
+    /* align-self: center;
+    text-align: center;
+    margin: 0; */
+}
+
+.highlight {
+    font-size: 1.3125rem;
+    line-height: 1.75rem;
+    background-color: var(--pantone-yellow);
+    color: #fff;
+    padding: 0.2rem 0.2rem;
+    display: inline-block; /*inline hace texto*/
+    border-radius: 0.3125rem;
+}
+
+.app-button-container {
+    display: flex;    /* or inline-flex */
+    flex-direction: row;     /* En misma fila */
+    justify-content: center;     /* center | space-around | space-between | space-evenly*/
+    align-items: center;
+    gap: 1.5625rem;
+    flex-wrap: wrap;     /* me baja el 2do boton en misma columna */
+}
+
+.icon-download-app {
+    display: inline-flex;
+    height: 2.75rem;
+    width: auto;
+    border: 1px  solid #fff; /*0625rem*/
+    border-radius: 0.5625rem;
+    overflow: hidden; /*elemento padre obtiene la altura de sus elementos hijo*/
+}
+
+.icon-download-app img {
+    width: 100%;
+    height: 100%;
+}
+
+/*------------------------MAIN CONTENT------------------------*/
+.galery-container {
+    width: var(--max-width-card); /* Limita el ancho igual que las tarjetas */
+    margin: 3.75rem  auto;
+    padding: 0 1.25rem;
+}
+
+.galery-container h2 {
+    color: var(--text-color);
     text-align: left;
-    font-size: 34px;
-    line-height:20px;
+    margin-bottom: 1.875rem;
+}
+
+.cards-contain {
+    display: grid;
+    /* repeat(auto-fit, minmax(...)) hace que sea 100% responsive sin @media queries */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.cards-items {
+    background-color: #fff;
+    border: 1px  solid #cacaca;
+    border-radius: 1rem;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    justify-content: space-between; /* CTA alineados abajo */
+}
+
+.book-cover {
+    /*display: inline-flex;  se adapta al tamaño de la img */
+    width: 3.125rem;
+}
+
+.book-cover img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--pantone-yellow);
+    border-radius: 0.375rem;
+}
+
+.button-item {
+    align-self: flex-start;     /* Evita que el botón ocupe todo el ancho de la tarjeta */
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.4);    /*con opacidad*/
+    padding: 0.625rem 1.25rem;
+    border-radius: 1.875rem;
+    font-size: 1rem;
+    color: var(--pantone-blue);
+    border: 1px solid var(--pantone-blue);
+    cursor: pointer;
+}
+
+/*------------------------FORMULARIO------------------------*/
+.signup-section-container {
+    background-color: var(--pantone-blue);
+    padding: 3.75rem 1.25rem;
+}
+
+.signup-section {
+    width: var(--max-width-text);
+    width: fit-content; /*Se adapta a contenido*/
+    max-width: 100%;
+    margin: 0  auto;
+    padding: 1.875rem;
+    background-color: #ffffff;
+    border: 1px  solid var(--pantone-yellow);
+    border-radius: 1.1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/*------------------------FOOTER------------------------*/
+footer {
+    width: 100%;
+    background-color: var(--pantone-sepia);
+    padding: 2.5rem  1.25rem;
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 75rem; /*1200px*/
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    /* justify-content: center; */
+    align-content: flex-start;  
+    align-items: center;
+
+    font-size: 0.5625rem; /**9px/
+    /*flex-grow: 0; Si tienes espacio crece
+    flex-shrink: 1; Si puedes encogerte hazlo
+    flex-direction: row;
+    flex-wrap: wrap; */
+}
+
+.footer-rrss {
+    display: flex;
+    gap: 3.125rem;
+}
+
+.footer-rrss img {
+    width: 1.5rem;
+    height: auto;
+}
+
+.footer-legal a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.footer-legal a:hover{
+    color: var(--text-color);
+    text-decoration:underline;
+}
+
+.footer-logo {
+    width: 2.5rem;
+    height: auto;
+}
+
+
+/*==========================GLOBALES======================================-*/
+h1 {
+    color: var(--pantone-blue);
+    font-size: 2.125rem;
+    line-height: 1.875rem;
 }
 
 h2 {
-    color: #5A189A;
-    text-align: left;
-    font-size: 28px;
-    line-height:32px;
+    color: #fff;
+    font-size: 1.75rem;
+    line-height: 2rem;
 }
 
 h3 {
-    color: #5A189A;
-    text-align: left;
-    font-size: 22px;
-    line-height:20px;
+    color: var(--pantone-blue);
+    font-size: 1.375rem;
+    line-height: 1.25rem;
 }
 
 h4 {
-    font-weight:400;
-    color: #5A189A;
+    font-weight: 400;
+    color: var(--pantone-yellow);
     text-align: left;
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 p {
-    font-size:18px;
-    line-height: 20px; /*1.5*/
-}
-
-label {
-    font-size:18px;
+    font-size: 18px;
     line-height: 20px;
 }
 
+label {
+    font-size: 1.125rem;
+    line-height: 1.25rem;
+}
 
-ul {
+/* ul {
     padding-left: 1.5rem;
-
-  list-style: none; /* quitamos los bullets nativos */
-    line-height:28px;
+    list-style: none;
+    line-height: 28px;
 }
 
 li {
     padding-left: 0.25rem;
     margin-bottom: .5rem;
     line-height: 1.5;
-    /*PDT sangria francesa*/
-}
-  
-
-li::before { /*Se utiliza cuando quieres ocultar los bullets nativos (list-style: none) y crear unos completamente personalizados.*/
-  content: "☐"; /*content: "✓"; content: "🚀";*/
-  color: #5A189A;
-  margin-right: 8px;
-}
-
-.highlight {
-    background-color: yellow;
-    padding: 0 0.2rem;
-}
-
-/* li p { 
-    display: inline;
 } */
 
 hr {
     border: none;
-    height: 1px; 
+    height: 0.0625rem;
     background-color: #e1e2e4;
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
-
-input[type="button"] {
-    background-color: #5A189A;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-input[type="button"]:hover {
-    background-color: #fff;
-    color:#5A189A;
-    border: 1px solid #5A189A;
-    transform: scale(1.08);
-}
-
-input[type="button"]:active {
-    background-color: #a889c7;
-    color:#5A189A;
-    transform: scale(0.95);
+    margin-top: 1.5625rem;
+    margin-bottom: 1.5625rem;
 }
